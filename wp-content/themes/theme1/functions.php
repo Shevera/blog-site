@@ -42,3 +42,41 @@ register_sidebar(array('name' => 'Footer',
                         'after_widget'=>'</div>',
                         'before_title'=>'<h3>',
                         'after_title'=>'</h3>'));
+
+/**
+ * баннер
+ */
+function banner_posts(){
+    $labels = array(
+            'name'               => 'Баннеры', // основное название для типа записи
+            'singular_name'      => 'Баннер', // название для одной записи этого типа
+            'add_new'            => 'Добавить новый', // для добавления новой записи
+            'add_new_item'       => 'Добавить новый баннер', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item'          => 'Редактировать баннер', // для редактирования типа записи
+            'new_item'           => 'Новый баннер', // текст новой записи
+            'view_item'          => 'Посмотреть баннер', // для просмотра записи этого типа.
+            'search_items'       => 'Найти баннер', // для поиска по этим типам записи
+            'not_found'          => 'Баннер не найден', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'В корзине баннера не найдено', // если не было найдено в корзине
+            'parent_item_colon'  => '', // для родительских типов. для древовидных типов
+            'menu_name'          => 'Баннеры', // название меню
+        );
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'query_var' => true,
+            'rewrite' => true,
+            'capability_type' => 'post',
+            'has_archive' => true,
+            'hierarchical' => false,
+            'menu_position' => null,
+            'supports' => array('title','thumbnail')
+    );
+
+    register_post_type('type_name', $args );
+}
+
+add_action('init' , 'banner_posts');

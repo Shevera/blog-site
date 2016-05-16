@@ -20,6 +20,8 @@
                     <?php previous_post_link('<span>&laquo;</span> %link'); next_post_link('%link <span>&raquo;</span> '); ?>
                 </div>
 
+                <?php comments_template();?>
+
             </div>
 
             <?php get_sidebar(); ?>
